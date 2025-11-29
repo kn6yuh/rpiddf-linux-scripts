@@ -1,0 +1,16 @@
+[Unit]
+Description=Ant Switcher Service
+After=multi-user.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/local/bin/ant_switcher
+#CPUAffinity=3
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

@@ -1,0 +1,21 @@
+[Unit]
+Description=RPi DDF Webserver
+Requires=rpi-ddf-engine.socket
+After=rpi-ddf-engine.socket
+
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/bin/stdbuf -i0 /usr/local/bin/compass-linux-arm-7 -accessible -refresh=50 -expire=5000 -bearings=50
+Sockets=rpi-ddf-engine.socket
+StandardInput=socket
+WorkingDirectory=/usr/local/bin
+#CPUAffinity=1
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
+

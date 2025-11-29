@@ -1,0 +1,18 @@
+[Unit]
+Description=RPi DDF Audio
+Requires=rpi-ddf-engine.service
+After=rpi-ddf-engine.service
+
+
+[Service]
+Type=simple
+User=root
+Group=root
+ExecStart=/usr/local/bin/cm6206-linein.sh
+WorkingDirectory=/usr/local/bin
+Restart=always
+RestartSec=300
+
+[Install]
+WantedBy=multi-user.target
+

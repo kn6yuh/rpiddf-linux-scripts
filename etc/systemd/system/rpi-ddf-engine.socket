@@ -1,0 +1,11 @@
+[Unit]
+Description=DDF Bearings Pipe Socket
+
+[Socket]
+ListenFIFO=/ddf_bearings_pipe
+SocketMode=0666
+RemoveOnStop=false
+
+[Install]
+WantedBy=sockets.target
+
